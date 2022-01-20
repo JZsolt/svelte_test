@@ -1,4 +1,6 @@
 <script>
+    import Modal from './Modal.svelte'
+
     export let name;
     // export let age;
     export let newName;
@@ -31,6 +33,8 @@
         console.log(peoples)
     }
 </script>
+
+<Modal/>
 
 <main>
     <h1>Hello {name}!</h1>
