@@ -1,12 +1,13 @@
 <script>
+    export let message = 'default CIM';
     let showModal = true;
-    let isPromo = false
+    export let isPromo = false;
 </script>
 
 {#if showModal}
     <div class="backdrop" class:promo={isPromo}>
         <div class="modal">
-            <p>TEST</p>
+            <p>{message}</p>
         </div>
     </div>
 {/if}

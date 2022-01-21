@@ -34,7 +34,7 @@
     }
 </script>
 
-<Modal/>
+<Modal message="Hello Zsolt vagyok" isPromo={true}/>
 
 <main>
     <h1>Hello {name}!</h1>
