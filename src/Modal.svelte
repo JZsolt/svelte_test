@@ -8,7 +8,7 @@
 </script>
 
 {#if showModal}
-    <div class="backdrop" class:promo={isPromo}>
+    <div class="backdrop" class:promo={isPromo} on:click|self>
         <div class="modal">
             <div class="modal-header">
                 <div on:click class="close">x</div>
