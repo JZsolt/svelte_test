@@ -2,9 +2,6 @@
     export let message = 'default CIM';
     export let showModal = false;
     export let isPromo = false;
-    const closeModal = () => {
-        showModal = false;
-    }
 </script>
 
 {#if showModal}
@@ -14,6 +11,7 @@
                 <div on:click class="close">x</div>
             </div>
             <p>{message}</p>
+            <slot></slot>
         </div>
     </div>
 {/if}
@@ -34,10 +32,12 @@
         margin: 10% auto;
         text-align: center;
     }
+
     .promo .modal {
         background: crimson;
         color: white;
     }
+
     .close {
         display: flex;
         align-items: center;
@@ -50,5 +50,20 @@
         cursor: pointer;
         color: #333333;
         border-radius: 8px;
+    }
+
+    .modal-header {
+        display: inline-block;
+        width: 100%;
+    }
+
+    .modal-title {
+        text-align: center;
+        float: left;
+    }
+
+    .modal-title h4 {
+        width: 100%;
+        text-align: center;
     }
 </style>

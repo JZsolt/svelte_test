@@ -70,9 +70,7 @@ body {
 	padding: 0;
 	margin: 0;
 }
-h4 {
-	color: orangered;
-}
 button {
+	border-radius: 8px;
 	background: white;
 }

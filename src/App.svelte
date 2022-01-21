@@ -1,5 +1,6 @@
 <script>
     import Modal from './Modal.svelte'
+    import Form from './AddPersonForm.svelte'
 
     export let name;
     // export let age;
@@ -23,24 +24,23 @@
         peoples = peoples.filter((people) => people.id != id)
         console.log(peoples)
     }
-    const  addPeople = () => {
-        peoples = peoples.push({
-            name: 'Random',
-            color: 'grey',
-            age: 777,
-            id: 5
-        })
-        console.log(peoples)
-    }
 
     let showModal = false;
 
     const toggleModal = () => {
         showModal = !showModal;
     }
+    const addPerson = (e) => {
+        console.log(e.detail)
+        peoples = [e.detail, ...peoples];
+        showModal = false
+    }
 </script>
 
-<Modal message="Hello Zsolt vagyok" isPromo={true} showModal="{showModal}" on:click={toggleModal}/>
+<Modal message="Hello pop vagyok" isPromo={false} showModal="{showModal}" on:click={toggleModal}>
+    <h2>Adj hozza uj embert</h2>
+    <Form on:addPerson={addPerson}/>
+</Modal>
 
 <main>
     <button on:click={toggleModal}>Modal</button>
@@ -55,11 +55,16 @@
             <h4 style="display: inline-block; color: {item.color}"><span style="font-weight: bold">{item.id}
                 . </span>{item.name}</h4>
             <p style="display: inline-block">Is {item.age}!</p>
+            {#if item.skills}
+                <br>
+                {#each item.skills as skill}
+                    {skill}
+                {/each}
+            {/if}
             <button on:click={() => {deleteF(item.id)}}>Delete</button>
         </div>
     {:else }
         Nincs ember akit kiirjak
-        <button on:click={addPeople}>ADD</button>
     {/each}
 </main>
 
