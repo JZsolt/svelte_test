@@ -1,12 +1,18 @@
 <script>
     export let message = 'default CIM';
-    let showModal = true;
+    export let showModal = false;
     export let isPromo = false;
+    const closeModal = () => {
+        showModal = false;
+    }
 </script>
 
 {#if showModal}
     <div class="backdrop" class:promo={isPromo}>
         <div class="modal">
+            <div class="modal-header">
+                <div on:click class="close">x</div>
+            </div>
             <p>{message}</p>
         </div>
     </div>
@@ -31,5 +37,18 @@
     .promo .modal {
         background: crimson;
         color: white;
+    }
+    .close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        float: right;
+        background: #dddddd;
+        margin: 10px 10px 0;
+        cursor: pointer;
+        color: #333333;
+        border-radius: 8px;
     }
 </style>

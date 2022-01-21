@@ -32,11 +32,18 @@
         })
         console.log(peoples)
     }
+
+    let showModal = false;
+
+    const toggleModal = () => {
+        showModal = !showModal;
+    }
 </script>
 
-<Modal message="Hello Zsolt vagyok" isPromo={true}/>
+<Modal message="Hello Zsolt vagyok" isPromo={true} showModal="{showModal}" on:click={toggleModal}/>
 
 <main>
+    <button on:click={toggleModal}>Modal</button>
     <h1>Hello {name}!</h1>
     <p on:click={test}> My name is {newName}!</p>
     <p>{color}</p>
